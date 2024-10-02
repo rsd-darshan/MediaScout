@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+.sidebar, .right-sidebar {
+    width: 300px;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Stronger shadow for more depth */
+    border: 1px solid #444; /* Adds a subtle border for more definition */
+    overflow-y: auto;
+}
+
+
+#new-chat {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: inherit; /* Inherit the color from the parent */
+    font-weight: 700;
+}
+
+#new-chat h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.explore-input {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid #444; /* Darker border */
+    box-sizing: border-box;
+    background-color: #333; /* Darker background */
+    color: #fff; /* White text */
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.menu li {
+    padding: 10px;
+    font-size: 18px;
+    color: #fff; /* White text color */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 400;
+    border-radius: 5px; /* Added border-radius */
+    margin-bottom: 10px; /* Added margin-bottom for spacing */
+}
+
+.menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter hover effect */
+    border-radius: 5px;
+}
+
+.main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; /* Change from 'start' to 'stretch' to align items height */
+    width: 100%;
+}
+
+.photo, .video {
+    flex: 0 0 250px; /* Decrease the size from 300px to 250px */
+    height: 200px; /* Adjust height accordingly */
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.photo img, .video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the content covers the area, might clip some parts */
+}
+.search-form label {
+    display: block;
+    color: #ccc; /* Lighter color for better visibility against dark background */
+    font-size: 16px; /* Larger font size for readability */
+    margin-bottom: 8px; /* Spacing below the label for better layout */
+    font-weight: 600; /* Semi-bold for importance */
+    text-transform: uppercase; /* Uppercase styling for a clean, professional look */
+}
+#search-type {
+    width: 100%; /* Full width for better touch interaction */
+    padding: 12px 10px; /* Comfortable padding */
+    background-color: #2c2c2c; /* Slightly lighter than the sidebar for contrast */
+    border: 2px solid #444; /* More defined border */
+    border-radius: 8px; /* Rounded corners for modern aesthetics */
+    color: #ddd; /* Lighter text color for readability */
+    font-size: 16px; /* Increases font size for easier reading */
+    appearance: none; /* Removes default system appearance to apply custom styles */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* Custom arrow icon */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Positioning the arrow icon */
+    background-size: 12px; /* Size of the arrow icon */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+}
+/* Improving the hover and focus states for better user feedback */
+#search-type:hover, #search-type:focus {
+    background-color: #333; /* Darker on hover/focus for interaction feedback */
+    border-color: #007bff; /* Highlight color on focus */
+    outline: none; /* Removes default outline to replace with custom styles */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Custom focus glow effect */
+}
+
+.search-input {
+    padding: 12px 10px; /* Consistent padding with dropdown */
+    background-color: #2c2c2c; /* Consistent background with dropdown */
+    color: #ddd; /* Consistent text color */
+    border-radius: 8px; /* Rounded corners */
+    border: 2px solid #444; /* Consistent border */
+}
+.search-button {
+    margin-top: 15px; /* Space between dropdown and button */
+    padding: 12px 15px; /* Comfortable padding for clicking */
+    background-color: #007bff; /* Theme color for button */
+    font-size: 16px; /* Larger font size for button text */
+    font-weight: bold; /* Bold font weight for button text */
+    letter-spacing: 1px; /* Spacing for aesthetics */
+    text-transform: uppercase; /* Uppercase text for button */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker on hover for interactive feedback */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth on hover */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; /* Centers the pagination horizontally */
+    align-items: center;
+    padding: 20px;
+    margin-top: 30px; /* Increase top margin for clearer separation */
+    margin-bottom: 30px; /* Adds space below the pagination */
+    width: 100%;
+    background-color: #f8f9fa; /* Light background to highlight the area */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+}
+
+.pagination-arrow {
+    padding: 12px 24px; /* Larger padding for easier clicking */
+    margin: 0 10px; /* Space between buttons */
+    text-decoration: none;
+    font-size: 18px; /* Larger font size for easier reading */
+    font-weight: bold; /* Bolder font for visibility */
+    color: #0056b3; /* Attractive blue for visibility */
+    background-color: #e9ecef; /* Neutral background */
+    border: 2px solid #0056b3; /* Solid border for definition */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s; /* Smooth transition for hover effects */
+}
+
+.pagination-arrow:hover, .pagination-arrow:focus {
+    background-color: #0056b3; /* Blue background on hover/focus */
+    color: #ffffff; /* White text for contrast */
+    transform: scale(1.05); /* Slightly enlarges the button on hover/focus */
+    outline: none; /* Removes outline to clean up focus state */
+}
+.current-page {
+    font-size: 18px; /* Larger font size for visibility */
+    color: #333; /* Dark color for contrast */
+    margin: 0 15px; /* Space around the text */
+    padding: 10px 20px; /* Padding for better visibility */
+    background-color: #dee2e6; /* Subtle background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* Subtle inset shadow for depth */
+}

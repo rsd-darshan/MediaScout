@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Videos/Photos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>AI Agents - Here To Help!</h1>
+            <input type="text" placeholder="Explore" class="explore-input">
+            <ul class="menu">
+                <li>New Chat</li>
+                <li>Clone Other Projects</li>
+                <li>Agents</li>
+                <li>ChatBot</li>
+                <li>Official Website</li>
+                <li>PC Software</li>
+                <li>About Us</li>
+                <li>Team</li>
+                <li>Buy Premium</li>
+            </ul>
+        </div>
+        <div class="main">
+            <h2>Stock Videos/Photos</h2>
+            <div id="gallery">
+                {% if content_type == 'video' %}
+                    {% for video in content %}
+                    <div class="video">
+                        <video controls width="300">
+                            <source src="{{ video.video_files[0].link }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p>Video by {{ video.user.name }}</p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    {% for photo in content %}
+                    <div class="photo">
+                        <img src="{{ photo.src.medium }}" alt="{{ photo.photographer }}">
+                        <p>Photo by {{ photo.photographer }}</p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="pagination">
+                {% if page > 1 %}
+                <a href="{{ url_for('index', query=query, type=content_type, page=1) }}" class="pagination-arrow">First</a>
+                <a href="{{ url_for('index', query=query, type=content_type, page=page-1) }}" class="pagination-arrow">&laquo; Previous</a>
+                {% endif %}
+                <span class="current-page">Page {{ page }} of {{ total_pages }}</span>
+                {% if page < total_pages %}
+                <a href="{{ url_for('index', query=query, type=content_type, page=page+1) }}" class="pagination-arrow">Next &raquo;</a>
+                <a href="{{ url_for('index', query=query, type=content_type, page=total_pages) }}" class="pagination-arrow">Last</a>
+                {% endif %}
+            </div>            
+        </div>
+        <div class="right-sidebar">
+            <form action="/" method="get" class="search-form">
+                <label for="search-type">Search By</label>
+                <select name="type" id="search-type">
+                    <option value="image">Images</option>
+                    <option value="video">Videos</option>
+                </select>
+                <input type="text" name="query" placeholder="Search" class="search-input">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>        
+    </div>
+</body>
+</html>
